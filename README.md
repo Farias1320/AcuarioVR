@@ -53,7 +53,7 @@ Explora, interactúa y observa de cerca peces, tiburones, algas y más en un ent
 3. python -m http.server
 4. http://localhost:8000/Acuario/
 
-## 👩‍💻 Autor
+## 👩‍💻 Autores
 
 **Belén Villca, Cristopher Farias, Karla Chicaiza**
 
