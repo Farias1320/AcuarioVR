@@ -55,7 +55,8 @@ Explora, interactúa y observa de cerca peces, tiburones, algas y más en un ent
 
 ## 👩‍💻 Autor
 
-Belén Villca, Cristopher Farias, Karla Chicaiza
+**Belén Villca, Cristopher Farias, Karla Chicaiza**
+
 Proyecto desarrollado con fines educativos y de demostración VR.
 
 "Sumérgete en un mundo donde la realidad y lo digital se mezclan bajo el agua." 🐚
