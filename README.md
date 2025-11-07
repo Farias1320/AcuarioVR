@@ -53,14 +53,14 @@ Explora, interactúa y observa de cerca peces, tiburones, algas y más en un ent
 3. python -m http.server
 4. http://localhost:8000/Acuario/
 
-👩‍💻 Autor
+## 👩‍💻 Autor
 
 Belén Villca, Cristopher Farias, Karla Chicaiza
 Proyecto desarrollado con fines educativos y de demostración VR.
 
 "Sumérgete en un mundo donde la realidad y lo digital se mezclan bajo el agua." 🐚
 
-🪶 Licencia
+## 🪶 Licencia
 
 Este proyecto se distribuye bajo la licencia MIT.
 Puedes usarlo, modificarlo y compartirlo libremente con atribución al autor original.
