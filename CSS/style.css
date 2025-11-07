@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: #000;
+}
+
+#info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: rgb(255, 250, 250);
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 1000;
+    border: 1px solid rgba(16, 15, 15, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    max-width: 250px;
+}
+
+ #info h3 {
+    margin: 0;
+    color: #00cfff;
+}
+
+/* Estilos para el panel de info de peces */
+#fish-info-panel {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,100,150,0.8));
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid rgba(255,255,255,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+}
+
+#fish-info-panel .info-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+#fish-info-panel .info-text h4 {
+    margin: 0;
+    font-size: 24px;
+    color: #FFD700;
+}
+
+#fish-info-panel .info-text p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#fish-info-panel .info-text button {
+    background: #FF4500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#fish-info-panel .fish-3d-container {
+    flex: 1;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;  /* Para que la escena no se salga */
+}
+
+.fish-3d-container {
+  flex: 1;
+  position: relative;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#fish-3d-display {
+  width: 100%;
+  height: 100%;
+}
+
+#close-fish-panel {
+  background: #ff4500;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
