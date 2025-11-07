@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>🐠 Acuario Virtual 🦈</title>
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src = "js/bubble-system.js"></script>
+    <script src = "js/swim-system.js"></script>  
+    <script src = "js/feeding-system.js"></script>
+    <script src = "js/interaction-system.js"></script>
+    <script src = "js/main.js"></script>
+</head>
+
+<body>
+    <div id="info">
+        <h3>🐠 Acuario Virtual 🦈</h3>
+        <p>Explora un acuario virtual en 3D con gran variedad de especies marinas.</p>
+    </div>
+    
+    <!-- Panel emergente para info de peces -->
+    <div id="fish-info-panel" style="display: none;">
+        <div class="info-text">
+            <h4 id="fish-name">🐠 Nombre del Pez</h4>
+            <p id="fish-description"></p>
+            <button id="close-fish-panel">Cerrar</button>
+        </div>
+
+        <div class="fish-3d-container">
+                <a-entity id="fish-3d-display" position="0 1.5 -3" visible="false">
+                    <a-entity id="fish-3d-model"></a-entity>
+                    <a-entity id="fish-3d-light" light="type: directional; intensity: 1; color: #ffffff" position="2 4 3"></a-entity>
+                    <a-entity id="fish-3d-camera" camera look-controls="enabled: false" position="0 1.5 3"></a-entity>
+                </a-entity>
+        </div>
+    </div>
+
+    
+    <a-scene>
+        <a-sky color="#004d80"></a-sky>
+        <a-plane position="0 -2 0" rotation="-90 0 0" width="25" height="25" 
+            material= "color: #d4b483; roughness: 1; metalness: 0; repeat: 4 4;">
+        </a-plane>
+
+        <!-- Rocas -->
+        <a-entity gltf-model="assets/Roca.glb" 
+                position="-4 -2 3" 
+                scale="0.5 0.5 0.5" 
+                rotation="0 30 0" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+
+        <a-entity gltf-model="assets/Roca.glb" 
+                position="1 -2 2.5" 
+                scale="0.6 0.6 0.6" 
+                rotation="0 70 0" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+
+        <a-entity gltf-model="assets/Roca.glb" 
+                position="3 -2 -1" 
+                scale="0.4 0.4 0.4" 
+                rotation="0 40 0" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+
+        <a-entity gltf-model="assets/Roca.glb" 
+                position="-3.5 -2 -2" 
+                scale="0.8 0.8 0.8" 
+                rotation="0 15 0" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+
+        <a-entity gltf-model="assets/Roca.glb" 
+                position="7 -2 7" 
+                scale="0.7 0.7 0.7" 
+                rotation="0 -45 0" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+
+        <a-entity gltf-model="assets/Roca.glb" 
+                position="-8 -2 6" 
+                scale="0.5 0.5 0.5" 
+                rotation="0 90 0" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+
+
+        <!--Conchas en el fondo del acuario-->
+        <a-entity gltf-model="assets/Conchas.glb" 
+                position="1 -2 -5" 
+                scale="0.3 0.3 0.3" 
+                rotation="0 0 0" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+
+
+        <a-entity gltf-model="assets/Conchas.glb" 
+                position="-2.5 -2 1.5" 
+                scale="0.3 0.3 0.3" 
+                rotation="0 45 0" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+
+        <a-entity gltf-model="assets/Conchas.glb" 
+                position="1.8 -2 3" 
+                scale="0.3 0.3 0.3" 
+                rotation="0 -30 0" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+
+
+        <a-entity gltf-model="assets/Conchas.glb" 
+                position="2.5 -2 0.5" 
+                scale="0.3 0.3 0.3" 
+                rotation="0 -60 0" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+
+        <!--Plantas marinas-->
+        <!-- Algas1-->
+        <a-entity gltf-model="assets/Algas1.glb" 
+                position="-8 -2 6" 
+                rotation="0 25 0" 
+                scale="0.07 0.07 0.07" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+        <a-entity gltf-model="assets/Algas1.glb" 
+                  position="0 -2 8" 
+                  rotation="0 -40 0" 
+                  scale="0.07 0.07 0.07" 
+                  shadow="receive: true; cast: true">
+        </a-entity>
+        <a-entity gltf-model="assets/Algas1.glb" 
+                  position="7 -2 4" 
+                  rotation="0 10 0" 
+                  scale="0.07 0.07 0.07" 
+                  shadow="receive: true; cast: true">
+        </a-entity>
+
+        <!-- Algas2-->
+        <a-entity gltf-model="assets/Algas2.glb" 
+                  position="-8 -2 -2" 
+                  rotation="0 45 0" 
+                  scale="0.07 0.07 0.07" 
+                  shadow="receive: true; cast: true">
+        </a-entity>
+        <a-entity gltf-model="assets/Algas2.glb" 
+                  position="-2 -2 -5" 
+                  rotation="0 -10 0" 
+                  scale="0.07 0.07 0.07" 
+                  shadow="receive: true; cast: true">
+        </a-entity>
+        <a-entity gltf-model="assets/Algas2.glb" 
+                  position="5 -2 -4" 
+                  rotation="0 -60 0" 
+                  scale="0.07 0.07 0.07" 
+                  shadow="receive: true; cast: true">
+        </a-entity>
+
+
+        <!--Estrella de mar-->
+        <a-entity gltf-model="assets/EstrellaMar.glb" 
+                position="-1 -2 6" 
+                scale="0.25 0.25 0.25" 
+                rotation="0 20 0" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+
+        <a-entity gltf-model="assets/EstrellaMar.glb" 
+                position="3 -2 -3" 
+                scale="0.25 0.25 0.25" 
+                rotation="0 20 0" 
+                shadow="receive: true; cast: true">
+        </a-entity>
+
+        <!-- Luces -->
+        <a-light type="ambient" color="#3366ff" intensity="0.6"></a-light>
+        <a-light type="directional" position="0 8 5" color="#aaddff" intensity="0.5" castShadow="true"></a-light>
+        <a-light type="point" position="0 4 0" color="#88ccff" intensity="0.3"></a-light>
+        
+        <!-- Paredes del acuario -->
+        <a-box position="0 2 -10" width="20" height="8" depth="0.1"
+             material="color: #0a4f91; opacity: 0.35;">
+        </a-box>
+        <a-box position="-10 2 0" width="0.1" height="8" depth="20"
+             material="color: #0a4f91; opacity: 0.35;">
+        </a-box>
+        <a-box position="10 2 0" width="0.1" height="8" depth="20"
+             material="color: #0a4f91; opacity: 0.35;">
+        </a-box>
+
+        <!-- Cámara y Controles -->
+        <a-entity id="cameraRig" movement-controls position="0 1.6 14" rotation="0 360 0">
+
+            <!-- Cámara principal -->
+            <a-entity 
+              id="head" 
+              camera 
+              look-controls="pointerLockEnabled: false; magicWindowTrackingEnabled: true">
+
+              <!-- Cursor visible solo en modo no-VR (para escritorio o móvil) -->
+              <a-entity id="cursor"
+                cursor="rayOrigin: mouse; fuse: true; fuseTimeout: 800"
+                raycaster="objects: .clickable"
+                position="0 0 -1"
+                geometry="primitive: ring; radiusInner: 0.015; radiusOuter: 0.025"
+                material="color: white; shader: flat; opacity: 0.9">
+             </a-entity>
+            </a-entity>
+
+             <!-- Controladores VR -->
+             <a-entity laser-controls="hand: left" raycaster="objects: .clickable" visible="false" xr-mode="vr"></a-entity>
+             <a-entity laser-controls="hand: right" raycaster="objects: .clickable" visible="false" xr-mode="vr"></a-entity>
+        </a-entity>
+
+        <!-- Sonidos ambientales -->
+        <a-sound src="assets/sounds/agua.mp3" preload="true" autoplay="true" loop="true" volume="0.3"></a-sound>
+        <a-sound id="bubble-sound" src="assets/sounds/burbujas.mp3" preload="true" autoplay="true" loop="true" volume="0.1"></a-sound>
+        
+        <!-- Peces con info y alimentación -->
+        <a-entity gltf-model="assets/EmperorAngelfish.glb" 
+        position="1 1 0" scale="1.5 1.5 1.5" 
+        animation-mixer="clip: *; loop: repeat; timeScale: 0.8" 
+        aquarium-swim fish-info="name: Pez Angel Emperador (Pomacanthus imperator); description: Es un pez de la familia Pomacanthidae (peces angel) conocido por su espectacular coloracion y su imponente presencia. Es muy popular en la acuariofilia marina, pero requiere expertos debido a su tamano y cuidados.; habitat: Gran Barrera de Coral de Australia; diet: Algas y pequenos invertebrados; size: Hasta 40 cm; curiosity: Ayuda a limpiar el arrecife comiendo algas."></a-entity>
+        
+        <a-entity gltf-model="assets/HammerShark.glb" 
+        position="1 -1 -2" 
+        scale="1 1 1" 
+        animation-mixer="clip: *; loop: repeat; timeScale: 1"
+        aquarium-swim fish-info="name: Tiburon Martillo (Sphyrna mokarran); description: El tiburon martillo (perteneciente a la familia Sphynidae) es un grupo de tiburones caracterizado por su cabeza en forma de 'T' o de martillo, una estructura conocida como cefalofolio. Esta singular morfologia no es un capricho de la evolucion, sino una herramienta de caza altamente especializada.; habitat: Aguas costeras y oceanicas; diet: Peces pequenos y crustaceos; size: Hasta 6 metros; curiosity: Su cabeza en forma de martillo mejora la deteccion de presas."></a-entity>
+       
+        <a-entity gltf-model="assets/PezCirujano.glb" 
+        position="-4 -1 3" 
+        scale="0.05 0.05 0.05" 
+        aquarium-swim fish-info="name: Pez Cirujano Vela de Desjardin (Zebrasoma desjardinii); description: Es un pez marino de la familia Acanthuridae (peces cirujano), conocido por su impresionante aleta dorsal en forma de 'vela' y sus intrincados patrones de color. Es muy apreciado en acuariofilia marina, pero es un nadador activo que requiere acuarios espaciosos.; habitat: Arrecifes tropicales y el Golfo Persico; diet: Algas y parasitos; size: Entre 28 y 40 cm; curiosity: Su 'escalpelo' en la aleta es para defenderse"></a-entity>
+       
+        <a-entity gltf-model="assets/WhiteShark.glb" 
+        position="5 10 -6"
+        scale="0.8 0.8 0.8" 
+        animation-mixer="clip: *; loop: repeat; timeScale: 1.2" 
+        aquarium-swim fish-info="name: Gran Tiburon Blanco (Carcharodon carcharias); description: El tiburon blanco es el mayor pez depredador del mundo y el unico representante vivo de su genero, Carcharodon. Es un superdepredador que se encuentra en la cima de la cadena alimentaria, desempenando un papel crucial en la salud de los ecosistemas marinos.; habitat: Oceano Pacifico y Oceano Atlantico; diet: Peces y mamiferos marinos; size: Hasta 7 metros; curiosity: Puede detectar sangre a kilometros de distancia."></a-entity>
+        
+        <a-entity gltf-model="assets/female_orca.glb"
+        position="-6 8 -4"
+        scale="0.09 0.09 0.09"
+        animation-mixer="clip: *; loop: repeat; timeScale: 1"
+        aquarium-swim fish-info="name: Orca o Ballena Asesina (Orcinus orca); description: La orca, tambien conocida como ballena asesina, es el miembro mas grande de la familia de los delfines. Es un depredador apex conocido por su inteligencia, comportamiento social complejo y tecnicas de caza cooperativas.; habitat: Oceanos de todo el mundo; diet: Peces, mamiferos marinos y aves; size: Hasta 9 metros; curiosity: Utilizan ecolocacioen para comunicarse y cazar."></a-entity>
+
+        <a-entity gltf-model="assets/PezPayaso.glb" 
+        position="3 0 4"
+        scale="10 10 10"
+        animation-mixer="clip: *; loop: repeat; timeScale: 1"
+        aquarium-swim fish-info="name: Pez Payaso (Amphiprioninae); description: El pez payaso, conocido por su colorido y su relacion simbiotica con las anemonas de mar, es un pez de arrecife popular en acuarios. Su cuerpo es robusto y tiene una coloracion brillante que varia entre el naranja y el negro.; habitat: Arrecifes de coral en aguas calidas; diet: Algas, zooplancton y pequenos invertebrados; size: Hasta 13 cm; curiosity: Son inmunes a las picaduras de las anemonas gracias a una capa de mucus especial en su piel."></a-entity>
+
+        <!-- Sistemas -->
+        <a-entity id="bubble-system" bubble-system></a-entity>
+        <a-entity id="feeding-system" feeding-system></a-entity>
+
+        <!-- Panel 3D para modo VR -->
+        <a-entity id="vr-fish-panel" visible="false" position="0 2 10" look-at="[camera]">
+
+            <!-- Fondo del panel -->
+            <a-plane id="vr-panel-bg"
+                    width="5.5"
+                    height="2.5"
+                    color="#579ce2"
+                    opacity="0.85"
+                    material="side: double; roughness: 0.4; metalness: 0.1">
+            </a-plane>
+
+            <!-- Nombre -->
+            <a-entity id="vr-fish-name"
+                    text="value: 🐠 Nombre; color: #FFD700; width: 2.5; align: left; wrapCount: 35"
+                    position="-1.25 0.7 0.01">
+            </a-entity>
+
+            <!-- Descripción -->
+            <a-entity id="vr-fish-description"
+                    text="value: ; color: white; width: 2.5; align: left; wrapCount: 45"
+                    position="-1.25 -0.05 0.01">
+            </a-entity>
+
+            <!-- Modelo 3D del pez a la derecha -->
+            <a-entity id="vr-fish-model"
+                    position="1.3 0 1.3"
+                    visible="false">
+            </a-entity>
+
+            <!-- Luz para el modelo -->
+            <a-entity light="type: point; color: #ffffff; intensity: 1" position="1.7 0.7 0.3"></a-entity>
+
+            <a-scene shadow="type: pcfsoft; colorManagement: true; physicallyCorrectLights: true;" ...>
+
+        </a-entity>
+    </a-scene>
+</body>
+</html>
