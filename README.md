@@ -60,7 +60,7 @@ Explora, interactúa y observa de cerca peces, tiburones, algas y más en un ent
 Proyecto desarrollado con fines educativos y de demostración VR.
  ```bash
 "Sumérgete en un mundo donde la realidad y lo digital se mezclan bajo el agua." 🐚
-
+ ```
 ## 🪶 Licencia
 
 Este proyecto se distribuye bajo la licencia MIT.
